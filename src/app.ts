@@ -1,5 +1,6 @@
-import express, { Application } from "express";
-// import userRoutes from "./routes/user.routes.js";
+import express, { type Application } from "express";
+import userRoutes from "./routes/users/user.routes";
+import { connectDB } from "./config/database";
 // import { errorMiddleware } from "./middlewares/error.middleware.js";
 
 export class App {
@@ -8,19 +9,23 @@ export class App {
   constructor() {
     this.app = express();
     this.initMiddlewares();
-    // this.initRoutes();
+    this.initRoutes();
     // this.initErrorHandling();
   }
 
-  private initMiddlewares() {
+  public async init(): Promise<void> {
+    await connectDB();
+  }
+
+  private initMiddlewares(): void {
     this.app.use(express.json());
   }
 
-  //   private initRoutes() {
-  //     this.app.use("/api/users", userRoutes);
-  //   }
+  private initRoutes(): void {
+    this.app.use("/users", userRoutes);
+  }
 
-  //   private initErrorHandling() {
-  //     this.app.use(errorMiddleware);
-  //   }
+  // private initErrorHandling(): void {
+  //   this.app.use(errorMiddleware);
+  // }
 }
