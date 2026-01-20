@@ -1,7 +1,7 @@
 import express, { type Application } from "express";
 import userRoutes from "./routes/users/user.routes";
 import { connectDB } from "./config/database";
-// import { errorMiddleware } from "./middlewares/error.middleware.js";
+import cors from "cors";
 
 export class App {
   public app: Application;
@@ -18,6 +18,7 @@ export class App {
   }
 
   private initMiddlewares(): void {
+    this.app.use(cors());
     this.app.use(express.json());
   }
 

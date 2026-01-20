@@ -4,6 +4,12 @@ import { UserService } from "../../services/users/user.service";
 export class UserController {
   static async createUser(req: Request, res: Response) {
     try {
+      if (typeof req.body.preferences?.favoriteSalons === "string") {
+        req.body.preferences.favoriteSalons = JSON.parse(
+          req.body.preferences.favoriteSalons,
+        );
+      }
+
       const user = await UserService.createUser(req.body);
 
       return res.status(201).json({
