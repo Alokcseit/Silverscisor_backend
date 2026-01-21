@@ -3,6 +3,14 @@ import type { IUserDocument } from "./user.types";
 
 const UserSchema = new Schema<IUserDocument>(
   {
+    userId: {
+      type: String,
+      required: true,
+      unique: true,
+      index: true,
+      immutable: true,
+    },
+
     name: {
       type: String,
       required: true,
@@ -25,6 +33,7 @@ const UserSchema = new Schema<IUserDocument>(
     password: {
       type: String,
       required: true,
+      select: false,
     },
 
     userType: {
