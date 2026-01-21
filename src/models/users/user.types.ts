@@ -5,6 +5,7 @@ import type { Document, Types } from "mongoose";
  */
 export interface IUser {
   // BASIC INFO
+  userId: string;
   name: string;
   phone: string;
   email: string;
@@ -57,3 +58,4 @@ export interface IUserDocument extends IUser, Document {
   createdAt: Date;
   updatedAt: Date;
 }
+
