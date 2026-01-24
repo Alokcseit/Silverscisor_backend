@@ -38,7 +38,7 @@ const UserSchema = new Schema<IUserDocument>(
 
     userType: {
       type: String,
-      enum: ["customer", "salon_owner"],
+      enum: ["customer", "salon_owner", "admin"],
       default: "customer",
     },
 
@@ -64,6 +64,14 @@ const UserSchema = new Schema<IUserDocument>(
       age: {
         type: Number,
       },
+    },
+    dailyLoginCount: {
+      type: Number,
+      default: 0,
+    },
+
+    lastLoginDate: {
+      type: String,
     },
 
     // ADDRESS

@@ -1,5 +1,6 @@
 import express, { type Application } from "express";
 import userRoutes from "./routes/users/user.routes";
+import authRoutes from "./routes/auth/auth.routes";
 import { connectDB } from "./config/database";
 import cors from "cors";
 
@@ -23,10 +24,7 @@ export class App {
   }
 
   private initRoutes(): void {
-    this.app.use("/users", userRoutes);
+    this.app.use("/api/v1/users", userRoutes);
+    this.app.use("/api/v1/auth", authRoutes);
   }
-
-  // private initErrorHandling(): void {
-  //   this.app.use(errorMiddleware);
-  // }
 }
