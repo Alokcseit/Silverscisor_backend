@@ -9,11 +9,11 @@ async function bootstrap() {
   await appInstance.init();
 
   appInstance.app.listen(PORT, () => {
-    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`Server running on port ${PORT}`);
   });
 }
 
 bootstrap().catch((error) => {
-  console.error("❌ Failed to start server", error);
+  console.error("Failed to start server", error);
   process.exit(1);
 });

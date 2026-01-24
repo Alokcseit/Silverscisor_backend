@@ -21,6 +21,8 @@ export interface IUser {
     dateOfBirth?: Date;
     age?: number;
   };
+  dailyLoginCount: number;
+  lastLoginDate: string;
 
   // ADDRESS
   address: {
