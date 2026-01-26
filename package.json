@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "type": "commonjs",
   "scripts": {
-      "dev": "nodemon src/index.ts",
+     "dev": "nodemon src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js"
-},
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Alokcseit/Silverscisor_backend.git"
@@ -27,6 +27,7 @@
     "ioredis": "^5.9.2",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.1.4",
+    "mysql2": "^3.16.1",
     "uuid": "^13.0.0"
   },
   "devDependencies": {
