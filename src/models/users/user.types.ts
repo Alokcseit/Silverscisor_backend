@@ -11,7 +11,7 @@ export interface IUser {
   email: string;
   password: string;
 
-  userType: "customer" | "salon_owner";
+  userType: "customer" | "salon" | "admin";
   isActive: boolean;
 
   // PROFILE
