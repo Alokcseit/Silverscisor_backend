@@ -3,6 +3,7 @@ import userRoutes from "./routes/users/user.routes";
 import authRoutes from "./routes/auth/auth.routes";
 import { connectDB } from "./config/database";
 import cors from "cors";
+import { pool, sqlDBConnection } from "./config/mysql.database";
 
 export class App {
   public app: Application;
@@ -16,6 +17,7 @@ export class App {
 
   public async init(): Promise<void> {
     await connectDB();
+    await sqlDBConnection();
   }
 
   private initMiddlewares(): void {

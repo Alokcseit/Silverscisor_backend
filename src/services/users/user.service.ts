@@ -3,6 +3,7 @@ import { IUser } from "../../models/users/user.types";
 import { hashPassword } from "../../utils/password.util";
 import { v4 as uuidv4 } from "uuid";
 import { UserValidator } from "../../utils/user.validator";
+import { ApiError } from "../../utils/error.utls";
 
 export class UserService {
   static async createUser(data: IUser) {
@@ -13,11 +14,9 @@ export class UserService {
     });
 
     if (existingUser) {
-      throw new Error("User with email or phone already exists");
+      throw new ApiError("Account already exists", 409);
     }
-
     const hashedPassword = await hashPassword(data.password);
-
     return UserModel.create({
       ...data,
       userId: uuidv4(),

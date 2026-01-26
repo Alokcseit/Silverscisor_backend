@@ -14,14 +14,12 @@ export class UserController {
 
       return res.status(201).json({
         success: true,
-        data: user,
+        message: "you have successfully Registered",
       });
     } catch (error: any) {
-      console.error("Create user failed:", error);
-
-      return res.status(500).json({
+      return res.status(error.statusCode || 500).json({
         success: false,
-        message: error.message || "Something went wrong",
+        message: error.message,
       });
     }
   }
