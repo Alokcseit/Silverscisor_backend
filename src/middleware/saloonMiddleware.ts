@@ -6,7 +6,7 @@ export const salonOwnerMiddleware = (
   res: Response,
   next: NextFunction,
 ) => {
-  if (req.user?.userType !== "salon_owner") {
+  if (req.user?.userType !== "salon") {
     return res.status(403).json({ message: "Salon owner access only" });
   }
   next();
