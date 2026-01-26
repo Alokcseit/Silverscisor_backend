@@ -40,6 +40,7 @@ const UserSchema = new Schema<IUserDocument>(
       type: String,
       enum: ["customer", "salon", "admin"],
       default: "customer",
+      required: true,
     },
 
     isActive: {
