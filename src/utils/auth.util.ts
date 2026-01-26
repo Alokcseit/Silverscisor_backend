@@ -7,7 +7,7 @@ const JWT_SECRET = process.env.JWT_SECRET as string;
 
 export interface TokenPayload extends JwtPayload {
   userId: string;
-  userType: "customer" | "salon_owner" | "admin";
+  userType: "customer" | "salon" | "admin";
 }
 
 export const generateToken = (payload: TokenPayload): string => {
