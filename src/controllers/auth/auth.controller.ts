@@ -83,6 +83,7 @@ export class AuthController {
       await AuthService.resetPassword(token, password);
 
       return res.status(200).json({
+        success: true,
         message: "Password reset successful",
       });
     } catch (error: any) {
