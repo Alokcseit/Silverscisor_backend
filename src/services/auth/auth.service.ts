@@ -66,7 +66,7 @@ export class AuthService {
   }
   static async forgotPassword(email: string): Promise<void> {
     const user = await UserModel.findOne({ email });
-    if (!user) return; // security best practice
+    if (!user) return;
 
     const resetToken = randomBytes(32).toString("hex");
 
@@ -85,7 +85,7 @@ export class AuthService {
       html: `
         <p>You requested a password reset.</p>
         <p>Click the link below to reset your password:</p>
-        <a href="${resetLink}">${resetLink}</a>
+        <a href="${resetLink}">click here for reset password</a>
         <p>This link will expire in 15 minutes.</p>
       `,
     });
