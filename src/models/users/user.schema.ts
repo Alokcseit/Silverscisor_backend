@@ -120,6 +120,12 @@ const UserSchema = new Schema<IUserDocument>(
       preferredServices: [String],
       preferredTimeSlots: [String],
     },
+    resetPasswordToken: {
+      type: String,
+    },
+    resetPasswordExpires: {
+      type: Date,
+    },
   },
   {
     timestamps: true,
