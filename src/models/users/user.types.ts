@@ -51,6 +51,8 @@ export interface IUser {
     preferredServices: string[];
     preferredTimeSlots: string[];
   };
+  resetPasswordToken?: string;
+  resetPasswordExpires?: Date;
 }
 
 /**
